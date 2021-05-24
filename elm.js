@@ -5268,7 +5268,7 @@ var $author$project$Main$backend = $author$project$Main$Production;
 var $author$project$Main$wsBackend = function () {
 	var _v0 = $author$project$Main$backend;
 	if (_v0.$ === 'Production') {
-		return 'wss://reanimate.clozecards.com:20443/ws/';
+		return 'wss://web.rgeometry.org:20443/ws/';
 	} else {
 		return 'ws://localhost:20162/';
 	}
@@ -5969,7 +5969,7 @@ var $elm$html$Html$Attributes$src = function (url) {
 var $author$project$Main$webBackend = function () {
 	var _v0 = $author$project$Main$backend;
 	if (_v0.$ === 'Production') {
-		return 'https://reanimate.clozecards.com:20443/';
+		return 'https://web.rgeometry.org:20443/';
 	} else {
 		return 'http://localhost:10162/';
 	}
