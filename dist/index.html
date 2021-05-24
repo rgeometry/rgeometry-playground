@@ -178,8 +178,11 @@
       lineWrapping: true
     });
 
-    myCodeMirror.setValue(snippets[0].code);
-    app.newCode(snippets[0].code);
+    const params = new URLSearchParams(window.location.search);
+    const code = params.get('code') || snippets[0].code;
+
+    myCodeMirror.setValue(code);
+    app.newCode(code);
 
     const mediaButtons = document.querySelector('.media-buttons');
 

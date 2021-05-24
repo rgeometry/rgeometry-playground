@@ -32,7 +32,7 @@ wsBackend : String
 wsBackend =
     case backend of
         Production ->
-            "wss://reanimate.clozecards.com:20443/ws/"
+            "wss://web.rgeometry.org:20443/ws/"
 
         Local ->
             "ws://localhost:20162/"
@@ -42,7 +42,7 @@ webBackend : String
 webBackend =
     case backend of
         Production ->
-            "https://reanimate.clozecards.com:20443/"
+            "https://web.rgeometry.org:20443/"
 
         Local ->
             "http://localhost:10162/"
