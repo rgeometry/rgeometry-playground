@@ -154,7 +154,7 @@
     if (gist) {
       myCodeMirror.setValue('Fetching gist...');
       fetch('https://web.rgeometry.org:20443/gist/raw/' + gist)
-        .then(response => response.data())
+        .then(response => response.text())
         .then(data => {
           myCodeMirror.setValue(data);
           app.newCode(data);
