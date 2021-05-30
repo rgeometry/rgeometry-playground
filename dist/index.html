@@ -2,7 +2,7 @@
 
 <head>
   <meta charset="utf-8" />
-  <title>Reanimate - viewer</title>
+  <title>RGeometry - playground</title>
   <script src="https://unpkg.com/split-grid/dist/split-grid.js"></script>
   <script type="text/javascript" src="elm.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.61.0/codemirror.min.js"
@@ -125,7 +125,7 @@
     <div class="modal-background"></div>
     <div class="modal-card">
       <header class="modal-card-head">
-        <p class="modal-card-title">Reanimate Examples</p>
+        <p class="modal-card-title">RGeometry Examples</p>
         <button class="delete" aria-label="close"></button>
       </header>
       <section class="modal-card-body">
@@ -150,10 +150,21 @@
     });
 
     const params = new URLSearchParams(window.location.search);
-    const code = params.get('code') || snippets[0].code;
+    const gist = params.get('gist');
+    if (gist) {
+      myCodeMirror.setValue('Fetching gist...');
+      fetch('https://web.rgeometry.org:20443/gist/raw/' + gist)
+        .then(response => response.data())
+        .then(data => {
+          myCodeMirror.setValue(data);
+          app.newCode(data);
+        });
+    } else {
+      const code = params.get('code') || snippets[0].code;
 
-    myCodeMirror.setValue(code);
-    app.newCode(code);
+      myCodeMirror.setValue(code);
+      app.newCode(code);
+    }
 
     const mediaButtons = document.querySelector('.media-buttons');
 
